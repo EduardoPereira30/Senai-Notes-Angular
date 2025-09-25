@@ -12,33 +12,94 @@ main {
 .formulario {
 
     background-color: #FFFFFF;
-    border-radius: 1px;
+    border-radius: 10px;
     width: 35%;
-    height: 70%;
+    /* height: 70%; */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 2%;
     gap: 16px;
+    min-width: 300px;
+    border: 1px solid #E0E4EA;
+
+}
+
+.formulario p {
+    font-size: 14px;
+    color: #525866;
+
 }
 
 .campo {
+
     width: 100%;
+
+}
+
+.Forgot {
+
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.Forgot a {
+
+    color: #525866;
+
+}
+
+.campo p {
+
+    font-size: 14px;
+    color: #0E121B;
 
 }
 
 .campo input {
 
+    margin-top: 6px;
     width: 100%;
+    height: 44px;
+    border-radius: 8px;
+    border: 1px solid #CACFD8;
+    background-color: #FFFFFF;
+    padding: 10px;
+
 }
 
 .bt {
-
-
     width: 100%;
     background-color: #335CFF;
     color: white;
-    border: 0px;
-    border-radius: 1px;
+    border: none;
+    border-radius: 8px;
+    height: 44px;
+    font-size: 16px;
+    font-weight: 600;
+
+}
+
+.cadastro {
+
+    border-top: 1px solid #E0E4EA;
+    width: 100%;
+    height: 40px;
+    gap: 3px;
+
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    margin-bottom: 20px;
+
+
+}
+
+.link {
+
+    color: #0E121B;
+    text-decoration: none;
+
 }

@@ -1,5 +1,5 @@
 <main>
-    <form action="" class="formulario">
+    <form action="" class="formulario" [formGroup]="loginForm">
         <img src="logo.png" alt="logo">
 
         <h2>Welcome to Note</h2>
@@ -12,11 +12,20 @@
 
         <div class="campo">
 
-            <p>Password</p>
+            <nav class="Forgot">
+                <p>Password</p>
+                <a href="">Forgot</a>
+            </nav>
             <input type="password">
-
         </div>
-        <button class="bt">login </button>
+
+        <button class="bt">login</button>
+
+        <div class="cadastro">
+            <p>No account yet?</p>
+            <a href="cadastro" class="link" (click)="onLoginclick()"> Sign Up</a>
+        </div>
+
 
     </form>
 </main>
