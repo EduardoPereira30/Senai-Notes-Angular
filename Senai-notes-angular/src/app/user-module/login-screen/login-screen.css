@@ -1,0 +1,44 @@
+main {
+
+    height: 100vh;
+    width: 100vw;
+    background-color: #F3F5F8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.formulario {
+
+    background-color: #FFFFFF;
+    border-radius: 1px;
+    width: 35%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2%;
+    gap: 16px;
+}
+
+.campo {
+    width: 100%;
+
+}
+
+.campo input {
+
+    width: 100%;
+}
+
+.bt {
+
+
+    width: 100%;
+    background-color: #335CFF;
+    color: white;
+    border: 0px;
+    border-radius: 1px;
+}
