@@ -7,7 +7,7 @@
 
         <div class="campo">
             <p>Email Address</p>
-            <input type="email" placeholder="email@example.com">
+            <input type="email" placeholder="email@example.com" formControlName="email">
         </div>
 
         <div class="campo">
@@ -16,14 +16,15 @@
                 <p>Password</p>
                 <a href="">Forgot</a>
             </nav>
-            <input type="password">
+            <input type="password" formControlName="password">
+
         </div>
 
-        <button class="bt">login</button>
+        <button class="bt" (click)=" onLoginClick()">login</button>
 
         <div class="cadastro">
             <p>No account yet?</p>
-            <a href="cadastro" class="link" (click)="onLoginclick()"> Sign Up</a>
+            <a href="cadastro" class="link"> Sign Up</a>
         </div>
 
 

@@ -13,8 +13,6 @@ export class LoginScreen {
 
   emailErrorMessage: string;
   passwordErrorMessage: string;
-  errorStatusMessage: string;
-
 
   constructor(private fb: FormBuilder, private cd: ChangeDetectorRef) {
     // Quando a tela iniciar
@@ -28,15 +26,13 @@ export class LoginScreen {
 
     this.emailErrorMessage = "";
     this.passwordErrorMessage = "";
-    this.errorStatusMessage = "";
 
   }
 
-  async onLoginclick() {
+  async onLoginClick() {
 
     this.emailErrorMessage = "";
     this.passwordErrorMessage = "";
-    this.errorStatusMessage = "";
 
     console.log("email", this.loginForm.value.email);
     console.log("password", this.loginForm.value.password);
@@ -70,7 +66,6 @@ export class LoginScreen {
 
     if (response.status >= 200 && response.status <= 299) {
 
-      this.errorStatusMessage = "login bem sucedido";
       let json = await response.json();
 
       console.log("JSON", json);
@@ -81,12 +76,7 @@ export class LoginScreen {
       localStorage.setItem("meuToken", meuToken);
       localStorage.setItem("meuId", userId);
 
-      window.location.href = "chat";
-
-
-    } else {
-
-      this.errorStatusMessage = "Nome de usuario ou senha icorretos";
+      window.location.href = "feed";
 
     }
 
@@ -95,4 +85,6 @@ export class LoginScreen {
   }
 
 }
+
+
 
