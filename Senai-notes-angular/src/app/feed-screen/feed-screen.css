@@ -1,0 +1,55 @@
+.container{
+
+    background-color: aqua;
+    /* flex-direction: column;
+    height: auto;
+    width: auto; */
+    display: flex;
+}
+
+.cabecario{
+
+    background-color:aliceblue;
+    height: 10vh;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+   
+}
+
+.logo{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.inp-cabecario{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lado{
+    display:flex;
+    flex-wrap: wrap;
+
+}
+
+.left-panel{
+
+    background-color: antiquewhite;
+    height: 90vh;
+    width: 30%;
+}
+
+.central-panel{
+
+    background-color: blue;
+    height: 90vh;
+    width: 50vw;
+   
+}
+
