@@ -39,13 +39,13 @@ export class LoginScreen {
 
     if (this.loginForm.value.email == "") {
 
-      this.emailErrorMessage = "O campo de email é obrigatorio";
+      alert("O campo de email é obrigatorio");
       return;
     }
 
     if (this.loginForm.value.password == "") {
 
-      this.passwordErrorMessage = "O campo de senha é obrigatorio";
+      alert("O campo de senha é obrigatorio");
       return;
     }
 
