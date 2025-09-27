@@ -18,15 +18,11 @@ export class CadastroScreen {
     private router: Router
 
   ) {
-
-    // quando a tela iniciar.
-
-    // inicia o formulario.
     this.newUserForm = this.fb.group({
 
       Name: ["", [Validators.required]],
-      Email: ["", [Validators.required, Validators.email]],//campo de email obrigatorio.
-      Password: ["", [Validators.required]],//campo obrigatorio de senha.
+      Email: ["", [Validators.required, Validators.email]],
+      Password: ["", [Validators.required]],
       confirmPassword: ["", [Validators.required]],
     });
 

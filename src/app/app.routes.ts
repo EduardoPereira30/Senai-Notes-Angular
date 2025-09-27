@@ -12,7 +12,7 @@ export const routes: Routes = [
         path: "cadastro",
         loadComponent: () => CadastroScreen
 
-    }, 
+    },
     {
         path: "feed",
         loadComponent: () => FeedScreen
