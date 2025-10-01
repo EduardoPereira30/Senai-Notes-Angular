@@ -11,11 +11,7 @@ export class LoginScreen {
 
   loginForm: FormGroup;
 
-  emailErrorMessage: string;
-  passwordErrorMessage: string;
-
   constructor(private fb: FormBuilder, private cd: ChangeDetectorRef) {
-    // Quando a tela iniciar
 
     this.loginForm = this.fb.group({
 
@@ -24,28 +20,22 @@ export class LoginScreen {
 
     });
 
-    this.emailErrorMessage = "";
-    this.passwordErrorMessage = "";
-
   }
 
   async onLoginClick() {
 
-    this.emailErrorMessage = "";
-    this.passwordErrorMessage = "";
 
-    console.log("email", this.loginForm.value.email);
-    console.log("password", this.loginForm.value.password);
+    console.log("Email", this.loginForm.value.email);
+    console.log("Password", this.loginForm.value.password);
 
     if (this.loginForm.value.email == "") {
 
-      this.emailErrorMessage = "O campo de email é obrigatorio";
+      alert("O Campo de e-mail é obrigatório.")
       return;
     }
 
     if (this.loginForm.value.password == "") {
-
-      this.passwordErrorMessage = "O campo de senha é obrigatorio";
+      alert("O Campo de Senha é obrigatório.")
       return;
     }
 
@@ -53,38 +43,33 @@ export class LoginScreen {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
-
       },
       body: JSON.stringify({
         email: this.loginForm.value.email,
-        password: this.loginForm.value.password
-
+        password: this.loginForm.value.password,
       })
     });
 
-    console.log("STATUS CORE", response.status);
+    console.log("STATUS CODE", response.status)
 
     if (response.status >= 200 && response.status <= 299) {
 
       let json = await response.json();
 
-      console.log("JSON", json);
+      console.log("JSON", json)
 
       let meuToken = json.accessToken;
-      let userId = json.user.id;
+      let meuId = json.user.id;
 
       localStorage.setItem("meuToken", meuToken);
-      localStorage.setItem("meuId", userId);
+      localStorage.setItem("meuId", meuId);
 
-      window.location.href = "feed";
+      window.location.href = "feed"
+
+
 
     }
 
     this.cd.detectChanges();
-
   }
-
 }
-
-
-
