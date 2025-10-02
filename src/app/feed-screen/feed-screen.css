@@ -101,20 +101,21 @@
     align-items: center;
     height: 90px;
     width: 100%;
-    gap: 12px;
+    gap: 10%;
     margin-bottom: 10px solid #e0e4ea;
+    border-bottom: solid 1px #e0e4ea;
     
 }
 .nodeD{
 
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 50%;
 }
 .class-note{
 
     display: flex;
-    gap: 4px;
+    gap: 5%;
 
 }
 
@@ -136,10 +137,104 @@
 }
 
 
+
 .central-panel {
 
-    background-color: blue;
+    /* background-color: blue; */
     height: 90vh;
     width: 50vw;
+    display: flex;
+    flex-direction: column;
+    border: solid 2px #e0e4ea;
+}
+
+.central-panel img {
+
+    height: 10%;
+    width: 95%;
+    border-radius: 8px;
+    display: flex;
+    margin: 10px;
+    
+}
+
+.titulo{
+display: flex;
+margin: 10px;
+font-size: 24px;
+font-weight: 700;
+font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif Bold;
 
 }
+
+.inf  {
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin: 10px;
+}
+.tag i{
+
+    margin: 5px;
+    font-size: small;
+    
+}
+.date i{
+    
+    margin: 5px;
+    font-size: small;
+    
+}
+.tag span {
+
+    margin-left: 10%;
+    font-size:smaller;
+}
+.date span{
+
+    margin-left: 5%;
+    font-size:smaller;
+}
+.line{
+    margin-left:10% ;
+    width: 80%;
+    height: 0%;
+    border: solid 1px #e0e4ea;
+
+}
+.text-note{
+    display: flex;
+    margin: 12px;
+    width: 95%;
+    height:700px;
+    border: none;
+}
+.inp-note{
+
+    display: flex;
+    height: 7%;
+    margin: 5px;
+    margin-left: 3%;
+    
+    
+}
+.inp-save{
+    
+    display: flex;
+    border-radius: 8px;
+    color: #e0e4ea;
+    background-color: blue;
+    outline: none;
+    border: none;
+}
+.inp-cancel{
+
+    display: flex;
+    border-radius: 8px;
+    color:slategray;
+    background-color: #e0e4ea;
+    margin-left: 4%;
+    border: none;
+}
+
