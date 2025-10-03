@@ -1,0 +1,15 @@
+{
+    "notas": [
+        {
+            "titulo": "titulo do chat",
+            "userId:": "",
+            "descricao": "descrição da nata",
+            "imageUrl": "link da image",
+            "tags": [
+                "tag1",
+                "tag2",
+                "tag3"
+            ]
+        }
+    ]
+}
