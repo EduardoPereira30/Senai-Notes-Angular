@@ -3,7 +3,7 @@
     <header class="cabecario">
 
         <div class=" logo">
-            <img src="logo.png" alt="logo">
+            <img [src]=" darkMode == true? 'logo.png':'logo-dark.png'" alt="logo">
 
         </div>
 
@@ -14,6 +14,10 @@
             <input type="text" placeholder="Search by title, content, or tags...">
 
             <img class="power" src="Content.png" alt="desloga">
+
+            <button class="bt" (click)="LigarDesligarDarkMode()"> <i id="bt-d"
+                    [class]=" darkMode == true? 'fa-solid fa-moon' : 'fa-solid fa-sun' "></i> darkMode</button>
+
 
         </div>
 
@@ -52,16 +56,22 @@
 
         </aside>
 
+        @if(notaSelecionada != null){
+
         <div class="central-panel">
             <img src="Rectangle 44.png" alt="">
 
-            <i class="titulo">React Performance Optmization</i>
+            <input class="titulo" value={{notaSelecionada.titulo}}>
 
             <div class="inf">
                 <div class="tag">
 
                     <i>Tags</i>
-                    <span>Dev</span>
+                    <select name="" id="">
+
+                        <option value={{novaNota.tags}}>dev</option>
+
+                    </select>
 
                 </div>
 
@@ -84,12 +94,13 @@
 
             <div class="inp-note">
 
-                <input class="inp-save" type="button" value="Save Note">
-                <input class="inp-cancel" type="button" value="Cancel">
+                <button class="bt-save" type="button">Save Note</button>
+                <button class="bt-cance" type="button">Cancel</button>
 
             </div>
 
         </div>
+        }
     </div>
 
 

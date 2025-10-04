@@ -10,6 +10,8 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 export class LoginScreen {
 
   loginForm: FormGroup;
+  darkMode: boolean = false;
+
 
   constructor(private fb: FormBuilder, private cd: ChangeDetectorRef) {
 
@@ -18,7 +20,21 @@ export class LoginScreen {
       email: ["", [Validators.required]],
       password: ["", [Validators.required]]
 
+
     });
+
+  }
+
+  ngOnInit() {
+    //buscar dados da api
+
+    let darkModeLocalStorage = localStorage.getItem("darkMode");
+
+    if (darkModeLocalStorage == "true") {
+
+      this.darkMode = true;
+      document.body.classList.toggle("darkmode", this.darkMode)
+    }
 
   }
 
@@ -71,5 +87,14 @@ export class LoginScreen {
     }
 
     this.cd.detectChanges();
+  }
+
+  LigarDesligarDarkMode() {
+
+    this.darkMode = !this.darkMode;
+
+    document.body.classList.toggle("dark Mode", this.darkMode);
+
+    localStorage.setItem("darkMode", this.darkMode.toString());
   }
 }

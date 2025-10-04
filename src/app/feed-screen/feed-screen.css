@@ -8,11 +8,11 @@
 
 .cabecario {
 
-    background-color: aliceblue;
     height: 10vh;
     width: 100vw;
     display: flex;
     justify-content: space-between;
+    border-bottom: 1px solid #E0E4EA;
 
 }
 
@@ -41,7 +41,7 @@
     width: 286px;
     height: 44px;
     border-radius: 10px;
-    border: 1px solid silver;
+    border: 1px solid #E0E4EA;
     padding-left: 10%
 }
 
@@ -83,6 +83,7 @@
 
     height: 90vh;
     width: 25%;
+    border-right: solid 1px #e0e4ea;
 
 }
 
@@ -94,8 +95,13 @@
     margin-top: 5%;
     display: flex;
     flex-direction: column;
+    overflow-y: scroll;
 
+}
 
+.left-container::-webkit-scrollbar {
+
+    height: 0px;
 
 }
 
@@ -105,8 +111,10 @@
     height: 90px;
     width: 100%;
     gap: 10%;
-    margin-bottom: 10px solid #e0e4ea;
+    border: none;
+    background-color: transparent;
     border-bottom: solid 1px #e0e4ea;
+
 
 }
 
@@ -114,7 +122,8 @@
 
     display: flex;
     flex-direction: column;
-    gap: 50%;
+    align-items: start;
+    gap: 10px;
 }
 
 .class-note {
@@ -147,22 +156,20 @@
 
 .central-panel {
 
-    /* background-color: blue; */
+    padding: 20px 24px;
     height: 90vh;
     width: 50vw;
     display: flex;
     flex-direction: column;
-    border: solid 2px #e0e4ea;
+    border-right: solid 1px #e0e4ea;
 }
 
 .central-panel img {
 
-    height: 10%;
-    width: 95%;
+    height: 135px;
+    width: 100%;
     border-radius: 8px;
     display: flex;
-    margin: 10px;
-
 }
 
 .titulo {
@@ -171,6 +178,7 @@
     font-size: 24px;
     font-weight: 700;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif Bold;
+    border: none;
 
 }
 
@@ -182,36 +190,47 @@
     margin: 10px;
 }
 
+.date {
+    display: flex;
+
+}
+
+.tag {
+    display: flex;
+
+}
+
 .tag i {
 
-    margin: 5px;
     font-size: small;
+    display: flex;
+    width: 100px !important;
 
 }
 
 .date i {
-
-    margin: 5px;
+    display: flex;
     font-size: small;
+    width: 100px !important;
 
 }
 
 .tag span {
 
-    margin-left: 10%;
     font-size: smaller;
+    color: #99A0AE;
 }
 
 .date span {
 
-    margin-left: 5%;
     font-size: smaller;
+    color: #99A0AE;
 }
 
 .line {
-    margin-left: 10%;
-    width: 80%;
-    height: 0%;
+
+    width: 100%;
+    height: 1px;
     border: solid 1px #e0e4ea;
 
 }
@@ -219,37 +238,51 @@
 .text-note {
     display: flex;
     margin: 12px;
-    width: 95%;
-    height: 700px;
+    width: 100%;
+    height: 423px;
+    resize: none;
     border: none;
 }
 
 .inp-note {
 
     display: flex;
-    height: 7%;
-    margin: 5px;
-    margin-left: 3%;
-
+    gap: 16px;
+    margin-top: 16px;
 
 }
 
-.inp-save {
+.bt-save {
 
     display: flex;
-    border-radius: 8px;
+    width: 99px;
+    height: 41px;
+    border-radius: 5px;
     color: #e0e4ea;
     background-color: blue;
     outline: none;
     border: none;
+    justify-content: center;
+    align-items: center;
 }
 
-.inp-cancel {
+.bt-cance {
 
     display: flex;
-    border-radius: 8px;
-    color: slategray;
+    width: 78px;
+    height: 41px;
+    border-radius: 5px;
+    color: #525866;
+    justify-content: center;
+    align-items: center;
     background-color: #e0e4ea;
-    margin-left: 4%;
+    border: none;
+}
+
+#bt-d {
+
+    width: 25px;
+    height: 25px;
+    background-color: transparent;
     border: none;
 }

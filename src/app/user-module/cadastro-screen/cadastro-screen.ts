@@ -11,11 +11,13 @@ import { Router } from '@angular/router';
 })
 export class CadastroScreen {
   newUserForm: FormGroup;
+  darkMode: boolean = false;
 
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
     private router: Router
+
 
   ) {
     this.newUserForm = this.fb.group({
@@ -25,6 +27,19 @@ export class CadastroScreen {
       Password: ["", [Validators.required]],
       confirmPassword: ["", [Validators.required]],
     });
+
+  }
+
+  ngOnInit() {
+    //buscar dados da api
+
+    let darkModeLocalStorage = localStorage.getItem("darkMode");
+
+    if (darkModeLocalStorage == "true") {
+
+      this.darkMode = true;
+      document.body.classList.toggle("darkmode", this.darkMode)
+    }
 
   }
 
@@ -79,4 +94,14 @@ export class CadastroScreen {
     }
 
   }
+
+  LigarDesligarDarkMode() {
+
+    this.darkMode = !this.darkMode;
+
+    document.body.classList.toggle("dark Mode", this.darkMode);
+
+    localStorage.setItem("darkMode", this.darkMode.toString());
+  }
+
 }

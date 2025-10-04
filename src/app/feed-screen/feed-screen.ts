@@ -7,9 +7,12 @@ import { firstValueFrom } from 'rxjs';
 interface INota {
 
 
-  titulo: string;
-  userId: string;
-  id: ""
+  titulo: string,
+  userId: string,
+  id: "",
+  tags: ["tag1",
+    "tag2",
+    "tag3"]
 
 }
 
@@ -26,9 +29,17 @@ export class FeedScreen {
   notaSelecionada: INota;
   notas: INota[];
   darkMode: boolean = false;
-  novaNota: INota = { titulo: "", userId: "meuId", id: "" };
+  novaNota: INota = {
+    titulo: "",
+    userId: "meuId",
+    id: "",
+    tags: ["tag1",
+      "tag2",
+      "tag3"]
+  };
 
   constructor(private http: HttpClient, private cd: ChangeDetectorRef) {
+
 
     this.notaSelecionada = null!;
     this.notas = [];
@@ -56,7 +67,7 @@ export class FeedScreen {
 
     if (!nomeNota) {
 
-      alert("criar nome valido")
+      alert("criar nome descente")
       return
 
     }
@@ -64,7 +75,10 @@ export class FeedScreen {
     const novoChatObj = {
 
       titulo: nomeNota,
-      userId: localStorage.getItem("meuId"),
+      UserId: localStorage.getItem("meuId"),
+      tags: [],
+      descricao: "",
+      imagemURL: "",
 
     }
 
@@ -77,8 +91,6 @@ export class FeedScreen {
     })) as INota;
 
     await this.getNotas();
-
-    this.cd.detectChanges();
 
 
   };
@@ -101,7 +113,7 @@ export class FeedScreen {
 
       let userId = localStorage.getItem("meuId");
 
-      response = response.filter(chat => chat.userId == userId);
+      // response = response.filter(chat => chat.userId == userId);
 
 
       this.notas = response as []
@@ -117,7 +129,9 @@ export class FeedScreen {
     this.notaSelecionada = noteClicado
     //logca para buscar mensagens
 
-    let response = await firstValueFrom(this.http.get("http://localhost:3000/notas?Id=" + this.notaSelecionada.id, {
+    let response = await firstValueFrom(this.http.get("http://localhost:3000/notas?notaId=" + this.notaSelecionada.userId, {
+
+
     }
 
     ))
@@ -125,6 +139,7 @@ export class FeedScreen {
     this.cd.detectChanges();
 
   }
+
 
   LigarDesligarDarkMode() {
 
