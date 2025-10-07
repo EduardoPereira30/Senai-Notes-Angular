@@ -311,3 +311,23 @@
     background-color: #1c1c1c !important;
     color: #E0E4EA;
 }
+::ng-deep body.darkMode .central-panel .titulo {
+
+    background-color: #1c1c1c !important;
+    color: #E0E4EA;
+}
+::ng-deep body.darkMode .text-note {
+
+    background-color: #1c1c1c !important;
+    color: #E0E4EA;
+}
+::ng-deep body.darkMode .left-panel .note {
+
+    background-color: #1c1c1c !important;
+    color: #E0E4EA;
+}
+::ng-deep body.darkMode .left-panel span {
+
+    background-color:#99A0AE  !important;
+    color: #E0E4EA;
+}
