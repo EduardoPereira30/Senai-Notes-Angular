@@ -20,7 +20,7 @@ interface INota {
 
 @Component({
   selector: 'app-feed-screen',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, FormsModule],
   templateUrl: './feed-screen.html',
   styleUrl: './feed-screen.css'
 })
@@ -28,13 +28,13 @@ interface INota {
 export class FeedScreen {
 
   tituloInput = new FormControl();
+  textinput = new FormControl()
   notaSelecionada: INota;
   notas: INota[];
   darkMode: boolean = false;
   novaNota: INota = { titulo: "", userId: "meuId", id: "", descricao: "", tags: [] };
 
-  tagSelecionada: "";
-
+  tagSelecionada: string;
   tagsDisponiveis = [
     "Dev",
     "Cooking",
@@ -136,7 +136,14 @@ export class FeedScreen {
     console.log("nota clicada"), noteClicado
     this.notaSelecionada = noteClicado
     this.tituloInput.setValue(this.notaSelecionada.titulo)
+    this.textinput.setValue(this.notaSelecionada.descricao)
 
+    if (this.notaSelecionada.tags != null && this.notaSelecionada.tags.length > 0) {
+      this.tagSelecionada = this.notaSelecionada.tags[0]
+    } else {
+      this.tagSelecionada = "";
+
+    }
     //logca para buscar mensagens
 
     let response = await firstValueFrom(this.http.get("http://localhost:3000/notas?notaId=" + this.notaSelecionada.userId, {
@@ -153,6 +160,7 @@ export class FeedScreen {
   async SalvaNote() {
     this.notaSelecionada.titulo = this.tituloInput.value;
     this.notaSelecionada.tags = [this.tagSelecionada];
+    this.notaSelecionada.descricao = this.textinput.value;
 
 
     let response = await firstValueFrom(this.http.put("http://localhost:3000/notas/" + this.notaSelecionada.id, this.notaSelecionada)) as INota[];

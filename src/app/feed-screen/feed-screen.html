@@ -3,7 +3,7 @@
     <header class="cabecario">
 
         <div class=" logo">
-            <img [src]=" darkMode == false? 'logo.png':'logo-dark.png' " alt="logo">
+            <img [src]=" darkMode == false? 'logo.png':'logo-dark.png'" alt="logo">
 
         </div>
 
@@ -36,8 +36,7 @@
                     </aside>
                     <div class="nodeD">
                         {{nota.titulo}}
-
-                        @if(tagSelecionada){
+                        @if(tagSelecionada != null){
 
 
                         <div class="class-note">
@@ -71,11 +70,11 @@
                 <div class="tag">
 
                     <i>Tags</i>
-                    <select class="selecter">
+                    <select class="selecter" [(ngModel)]="tagSelecionada">
 
                         <option value="">selecione uma etiqueta</option>
                         @for(tag of tagsDisponiveis; track $index){
-                        <option [value]="tag">{{ tag }}</option>
+                        <option [value]="tag">{{tag}}</option>
                         }
                     </select>
 
@@ -93,7 +92,7 @@
 
             <i class="line"></i>
 
-            <textarea class="text-note" name="eduardo" id="" placeholder="Digite a sua anotação aqui...">
+            <textarea class="text-note" name="eduardo" id="" [formControl]="textinput">{{notaSelecionada.descricao}}
 
             </textarea>
             <i class="line"></i>
