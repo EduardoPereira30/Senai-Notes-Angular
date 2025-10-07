@@ -113,8 +113,8 @@ main {
     text-decoration: none;
 }
 
-::ng-deep body.darkMode .formulario {
+/* ::ng-deep body.darkMode .formulario {
 
     background-color: #1c1c1c !important;
-    color: white
-}
+    color: white */
+
