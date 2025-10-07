@@ -145,7 +145,7 @@ export class FeedScreen {
 
     this.darkMode = !this.darkMode;
 
-    document.body.classList.toggle("dark Mode", this.darkMode);
+    document.body.classList.toggle("darkMode", this.darkMode);
 
     localStorage.setItem("darkMode", this.darkMode.toString());
   }

@@ -3,7 +3,7 @@
     <header class="cabecario">
 
         <div class=" logo">
-            <img [src]=" darkMode == true? 'logo.png':'logo-dark.png'" alt="logo">
+            <img [src]=" darkMode == false? 'logo.png':'logo-dark.png'" alt="logo">
 
         </div>
 
@@ -15,9 +15,9 @@
 
             <img class="power" src="Content.png" alt="desloga">
 
-            <button class="bt" (click)="LigarDesligarDarkMode()"> <i id="bt-d"
-                    [class]=" darkMode == true? 'fa-solid fa-moon' : 'fa-solid fa-sun' "></i> darkMode</button>
-
+            <button class="bt" (click)="LigarDesligarDarkMode()"> <i
+                    [class]=" darkMode == true? 'fa-solid fa-moon' : 'fa-solid fa-sun' "></i></button>
+ 
 
         </div>
 

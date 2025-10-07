@@ -35,6 +35,25 @@
 
 }
 
+.inp-cabecario button i  {
+
+    transform: scale(1.7);
+    transition: all;
+    color: #717784;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inp-cabecario button  {
+
+    width: 25px;
+    height: 25px;
+    background-color: transparent;
+    border: none;
+    margin-left: 10%;
+   
+}
 .inp-cabecario input {
 
     background-color: transparent;
@@ -279,10 +298,16 @@
     border: none;
 }
 
-#bt-d {
+                     /* darck mode */
 
-    width: 25px;
-    height: 25px;
-    background-color: transparent;
-    border: none;
+::ng-deep body.darkMode .lado {
+    
+    background-color: #1c1c1c !important;
+    color: #e0e4ea;
+
+}
+::ng-deep body.darkMode .cabecario {
+
+    background-color: #1c1c1c !important;
+    color: #E0E4EA;
 }
