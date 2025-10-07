@@ -5,35 +5,17 @@
       "userId:": "",
       "descricao": "descrição da nata",
       "imageUrl": "link da image",
-      "tags": [
-        "tag1",
-        "tag2",
-        "tag3"
-      ],
-      "dataCriacao": "data da Criacao",
-      "dataAtualizacao": "data da Atualizacao"
-    },
-    {
-      "id": "f0f9",
-      "titulo": "alo",
-      "usuarioId": "f308e80f-d2fe-471d-95ab-70228ba2ed61",
       "tags": [],
-      "descricao": "",
-      "imagemURL": ""
+      "date": "data da Criacao",
+      "id": "fffe"
     },
     {
-      "id": "6e91",
-      "titulo": "aloMundo",
-      "usuarioId": "f308e80f-d2fe-471d-95ab-70228ba2ed61",
-      "tags": [],
-      "descricao": "",
-      "imagemURL": ""
-    },
-    {
-      "id": "6c31",
-      "titulo": "ao",
+      "id": "c436",
+      "titulo": "eduardo",
       "UserId": "f308e80f-d2fe-471d-95ab-70228ba2ed61",
-      "tags": [],
+      "tags": [
+        ""
+      ],
       "descricao": "",
       "imagemURL": ""
     }

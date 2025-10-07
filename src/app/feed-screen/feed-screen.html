@@ -37,11 +37,17 @@
                     <div class="nodeD">
                         {{nota.titulo}}
 
+                        @if(tagSelecionada){
+
+
                         <div class="class-note">
 
-                            <span>Dev</span>
+
+                            <span>{{nota.tags[0]}}</span>
+
 
                         </div>
+                        }
 
                         <p>20 de abrei </p>
                     </div>
@@ -59,17 +65,20 @@
         <div class="central-panel">
             <img src="Rectangle 44.png" alt="">
 
-            <input class="titulo" value={{notaSelecionada.titulo}}>
+            <input class="titulo" [formControl]="tituloInput" type="text" value={{notaSelecionada.titulo}}>
 
             <div class="inf">
                 <div class="tag">
 
                     <i>Tags</i>
-                    <select name="" id="">
+                    <select class="selecter">
 
-                        <option value={{novaNota.tags}}>dev</option>
-
+                        <option value="">selecione uma etiqueta</option>
+                        @for(tag of tagsDisponiveis; track $index){
+                        <option [value]="tag">{{ tag }}</option>
+                        }
                     </select>
+
 
                 </div>
 
@@ -84,20 +93,27 @@
 
             <i class="line"></i>
 
-            <textarea class="text-note">
-
+            <textarea class="text-note" name="eduardo" id="" placeholder="Digite a sua anotação aqui...">
 
             </textarea>
             <i class="line"></i>
 
             <div class="inp-note">
 
-                <button class="bt-save" type="button">Save Note</button>
-                <button class="bt-cance" type="button">Cancel</button>
+                <button class="bt-save" type="button" (click)="SalvaNote()">Save Note</button>
+                <button class="bt-cance" type="button" (click)="cancelarNota()">Cancel</button>
 
             </div>
 
         </div>
+        }
+
+        @if(notaSelecionada != null){
+
+        <aside class="campo-bt">
+            <button class="delete" (click)="deleteNote()">
+                <i class="fa-solid fa-trash"></i>Deletar Note</button>
+        </aside>
         }
     </div>
 

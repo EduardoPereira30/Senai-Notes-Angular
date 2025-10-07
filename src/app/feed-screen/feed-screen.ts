@@ -1,8 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { ChangeDetectorRef, Component } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormControl, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { firstValueFrom } from 'rxjs';
+
+
 
 interface INota {
 
@@ -10,9 +12,8 @@ interface INota {
   titulo: string,
   userId: string,
   id: "",
-  tags: ["tag1",
-    "tag2",
-    "tag3"]
+  tags: string[],
+  descricao: string;
 
 }
 
@@ -26,23 +27,28 @@ interface INota {
 
 export class FeedScreen {
 
+  tituloInput = new FormControl();
   notaSelecionada: INota;
   notas: INota[];
   darkMode: boolean = false;
-  novaNota: INota = {
-    titulo: "",
-    userId: "meuId",
-    id: "",
-    tags: ["tag1",
-      "tag2",
-      "tag3"]
-  };
+  novaNota: INota = { titulo: "", userId: "meuId", id: "", descricao: "", tags: [] };
+
+  tagSelecionada: "";
+
+  tagsDisponiveis = [
+    "Dev",
+    "Cooking",
+    "Work",
+    "Home",
+    "Personal"
+  ];
 
   constructor(private http: HttpClient, private cd: ChangeDetectorRef) {
 
 
     this.notaSelecionada = null!;
     this.notas = [];
+    this.tagSelecionada = "";
 
   }
 
@@ -92,6 +98,8 @@ export class FeedScreen {
 
     await this.getNotas();
 
+    this.cd.detectChanges();
+
 
   };
 
@@ -127,6 +135,8 @@ export class FeedScreen {
 
     console.log("nota clicada"), noteClicado
     this.notaSelecionada = noteClicado
+    this.tituloInput.setValue(this.notaSelecionada.titulo)
+
     //logca para buscar mensagens
 
     let response = await firstValueFrom(this.http.get("http://localhost:3000/notas?notaId=" + this.notaSelecionada.userId, {
@@ -140,6 +150,22 @@ export class FeedScreen {
 
   }
 
+  async SalvaNote() {
+    this.notaSelecionada.titulo = this.tituloInput.value;
+    this.notaSelecionada.tags = [this.tagSelecionada];
+
+
+    let response = await firstValueFrom(this.http.put("http://localhost:3000/notas/" + this.notaSelecionada.id, this.notaSelecionada)) as INota[];
+
+    if (response) {
+
+      console.log("atualizado", response);
+      let userId = localStorage.getItem("meuId");
+      response = response.filter(tagSelecionada => tagSelecionada.id == userId);
+
+      this.cd.detectChanges();
+    }
+  }
 
   LigarDesligarDarkMode() {
 
@@ -149,5 +175,37 @@ export class FeedScreen {
 
     localStorage.setItem("darkMode", this.darkMode.toString());
   }
+
+  async deleteNote() {
+
+    let confirma = confirm("tem certeza que deseja deletar a nota " + this.notaSelecionada.titulo + " ?")
+    if (!confirma) {
+      return;
+
+    }
+
+    try {
+      let deleteResponse = await firstValueFrom(this.http.delete("http://localhost:3000/notas/" + this.notaSelecionada.id, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + localStorage.getItem("meuToken")
+        }
+      }
+      )) as INota;
+
+    } catch (error) {
+      console.log("Erro ao deletar nota: " + error);
+    }
+
+    this.cancelarNota();
+    this.getNotas();
+    this.cd.detectChanges();
+  }
+
+  async cancelarNota() {
+    this.notaSelecionada = null!
+
+  }
+
 }
 
