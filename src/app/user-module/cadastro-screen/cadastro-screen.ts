@@ -61,7 +61,7 @@ export class CadastroScreen {
 
     }
 
-    let response = await fetch("/users", {
+    let response = await fetch("http://senainotes-grupo5.us-east-1.elasticbeanstalk.com//users", {
       method: "POST", //enviar
       headers: {
         "Content-Type": "application/json"
