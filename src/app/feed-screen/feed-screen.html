@@ -32,7 +32,8 @@
                 <button class="note" (click)="onNoteClick(nota)">
 
                     <aside class="img-note">
-                        <img src="Rectangle 45.png" alt="img">
+                        <img *ngIf="(urlImagem ||  notaSelecionada.id) as src" src={{notaSelecionada.imageUrl}}
+                            alt="preview" />
                     </aside>
                     <div class="nodeD">
                         {{nota.titulo}}
@@ -62,7 +63,7 @@
         @if(notaSelecionada != null){
 
         <div class="central-panel">
-            <img src="Rectangle 44.png" alt="">
+            <img *ngIf="(urlImagem ||  notaSelecionada.id) as src" src={{notaSelecionada.imageUrl}} alt="preview" />
 
             <input class="titulo" [formControl]="tituloInput" type="text" value={{notaSelecionada.titulo}}>
 
@@ -72,9 +73,9 @@
                     <i>Tags</i>
                     <select class="selecter" [(ngModel)]="tagSelecionada">
 
-                        <option value="" class="op">Select Tag</option>
+                        <option value="">selecione uma etiqueta</option>
                         @for(tag of tagsDisponiveis; track $index){
-                        <option class="op" [value]="tag">{{tag}} </option>
+                        <option [value]="tag">{{tag}}</option>
                         }
                     </select>
 
@@ -116,8 +117,8 @@
 
             <div class="delete">
 
-                <label for="botao-file">Fazer unpload aqui...</label>
-                <input type="file" id="botao-file" class="file">
+                <label for="file">Fazer unpload aqui...</label>
+                <input type="file" id="file" class="filei" accept="image/*" (change)="definirImagem($event)" />
 
             </div>
 

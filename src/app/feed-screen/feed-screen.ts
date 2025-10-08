@@ -14,7 +14,8 @@ interface INota {
   id: "",
   tags: string[],
   descricao: string;
-  date: string
+  date: string,
+  imageUrl: string
 
 }
 
@@ -30,10 +31,14 @@ export class FeedScreen {
 
   tituloInput = new FormControl();
   textinput = new FormControl()
+
+  novaNota: INota = { titulo: "", userId: "meuId", id: "", descricao: "", tags: [], date: new Date().toISOString(), imageUrl: "" };
   notaSelecionada: INota;
   notas: INota[];
   darkMode: boolean = false;
-  novaNota: INota = { titulo: "", userId: "meuId", id: "", descricao: "", tags: [], date: new Date().toISOString() };
+
+  arquivoImagem: File | null = null;  // mantém o arquivo selecionado
+  urlImagem = "";
 
   datanota = this.novaNota.date;
   tagSelecionada: string;
@@ -86,7 +91,7 @@ export class FeedScreen {
       UserId: localStorage.getItem("meuId"),
       tags: [],
       descricao: "",
-      imagemURL: "",
+      imageUrl: "",
 
     }
 
@@ -163,6 +168,8 @@ export class FeedScreen {
     this.notaSelecionada.titulo = this.tituloInput.value;
     this.notaSelecionada.tags = [this.tagSelecionada];
     this.notaSelecionada.descricao = this.textinput.value;
+    this.notaSelecionada.imageUrl = this.urlImagem
+
 
 
     let response = await firstValueFrom(this.http.put("http://localhost:3000/notas/" + this.notaSelecionada.id, this.notaSelecionada)) as INota[];
@@ -216,6 +223,40 @@ export class FeedScreen {
     this.notaSelecionada = null!
     this.cd.detectChanges();
 
+  }
+
+  definirImagem(evento: Event): void {
+    const input = evento.target as HTMLInputElement;
+    if (!input.files || input.files.length === 0) {
+      alert('Selecione uma imagem.');
+      return;
+    }
+
+    const file = input.files[0];
+
+    // Validações simples (opcional, mas recomendado)
+    const tiposPermitidos = ['image/jpeg', 'image/png', 'image/webp'];
+    const tamanhoMaxMB = 5;
+
+    if (!tiposPermitidos.includes(file.type)) {
+      alert('Tipo inválido. Use JPG, PNG ou WEBP.');
+      return;
+    }
+    if (file.size > tamanhoMaxMB * 1024 * 1024) {
+      alert(`Arquivo muito grande (máx. ${tamanhoMaxMB}MB).`);
+      return;
+    }
+
+    // Libera a URL anterior (evita vazamento de memória)
+    if (this.urlImagem) {
+      URL.revokeObjectURL(this.urlImagem);
+    }
+
+    // Guarda o arquivo e gera a URL local para preview imediato
+    this.arquivoImagem = file;
+    this.urlImagem = URL.createObjectURL(file);
+
+    this.cd.detectChanges();
   }
 
 }
