@@ -96,14 +96,16 @@
 
 .delete {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    padding-left: 20px;
     background-color: transparent;
     border: 1px solid #CACFD8;
     border-radius: 8px;
     height: 44px;
     width: 90%;
     gap: 10px !important;
+    font-weight: 600;
 
 }
 
@@ -322,6 +324,8 @@
     border: none;
 }
 
+
+
 .file {
 
     display: none;
@@ -334,7 +338,43 @@
 
 }
 
+.selecter {
+    border: none;
+    font-weight: 600;
+}
+
+.selecter .op {
+    color: #525866;
+    font-weight: 600;
+    border: none;
+
+
+}
+
 /* darck mode */
+
+::ng-deep body.darkMode .selecter {
+
+    background-color: transparent;
+    border: none;
+    color: slategrey;
+    background-color: #1c1c1c;
+
+}
+
+::ng-deep body.darkMode .op {
+
+    border: none;
+    color: silver;
+
+
+}
+
+::ng-deep body.darkMode .delete {
+
+    background-color: transparent;
+    color: slategrey;
+}
 
 ::ng-deep body.darkMode .lado {
 

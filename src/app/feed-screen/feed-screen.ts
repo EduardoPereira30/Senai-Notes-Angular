@@ -64,18 +64,18 @@ export class FeedScreen {
     if (darkModeLocalStorage == "true") {
 
       this.darkMode = true;
-      document.body.classList.toggle("darkmode", this.darkMode)
+      document.body.classList.toggle("darkMode", this.darkMode)
     }
 
   }
 
   async criarNota() {
 
-    const nomeNota = prompt("qual o nome da Nota?")
+    const nomeNota = prompt("Qual o nome da Nota?")
 
     if (!nomeNota) {
 
-      alert("criar nome descente")
+      alert("Criar nome descente")
       return
 
     }

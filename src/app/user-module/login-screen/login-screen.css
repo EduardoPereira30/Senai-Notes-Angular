@@ -103,3 +103,24 @@ main {
     text-decoration: none;
 
 }
+::ng-deep body.darkMode .formulario {
+
+    background-color:black;
+    
+}
+::ng-deep body.darkMode .formulario p {
+
+    color: #525866;
+    
+}
+::ng-deep body.darkMode .Forgot  {
+
+    color: #525866;
+    
+}
+::ng-deep body.darkMode .cadastroL  {
+
+    color: #525866;
+    
+}
+

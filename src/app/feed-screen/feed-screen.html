@@ -72,9 +72,9 @@
                     <i>Tags</i>
                     <select class="selecter" [(ngModel)]="tagSelecionada">
 
-                        <option value="">selecione uma etiqueta</option>
+                        <option value="" class="op">Select Tag</option>
                         @for(tag of tagsDisponiveis; track $index){
-                        <option [value]="tag">{{tag}}</option>
+                        <option class="op" [value]="tag">{{tag}} </option>
                         }
                     </select>
 
