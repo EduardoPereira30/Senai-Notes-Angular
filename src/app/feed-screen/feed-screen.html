@@ -13,7 +13,7 @@
 
             <input type="text" placeholder="Search by title, content, or tags...">
 
-            <img class="power" src="Content.png" alt="desloga">
+            <img class="power" src="Content.png" alt="desloga" (click)="deslogar()">
 
             <button class="bt" (click)="LigarDesligarDarkMode()"> <i
                     [class]=" darkMode == true? 'fa-solid fa-moon' : 'fa-solid fa-sun' "></i></button>
@@ -111,7 +111,16 @@
 
         <aside class="campo-bt">
             <button class="delete" (click)="deleteNote()">
-                <i class="fa-solid fa-trash"></i>Deletar Note</button>
+                <i class="fa-solid fa-trash"></i>Deletar Note
+            </button>
+
+            <div class="delete">
+
+                <label for="botao-file">Fazer unpload aqui...</label>
+                <input type="file" id="botao-file" class="file">
+
+            </div>
+
         </aside>
         }
     </div>

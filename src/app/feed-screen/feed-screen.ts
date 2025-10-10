@@ -14,6 +14,7 @@ interface INota {
   id: "",
   tags: string[],
   descricao: string;
+  date: string
 
 }
 
@@ -32,8 +33,9 @@ export class FeedScreen {
   notaSelecionada: INota;
   notas: INota[];
   darkMode: boolean = false;
-  novaNota: INota = { titulo: "", userId: "meuId", id: "", descricao: "", tags: [] };
+  novaNota: INota = { titulo: "", userId: "meuId", id: "", descricao: "", tags: [], date: new Date().toISOString() };
 
+  datanota = this.novaNota.date;
   tagSelecionada: string;
   tagsDisponiveis = [
     "Dev",
@@ -212,7 +214,16 @@ export class FeedScreen {
 
   async cancelarNota() {
     this.notaSelecionada = null!
+    this.cd.detectChanges();
 
+  }
+
+  deslogar() {
+
+    localStorage.removeItem("meuToken");
+    localStorage.removeItem("userId");
+
+    window.location.href = "";
   }
 
 }

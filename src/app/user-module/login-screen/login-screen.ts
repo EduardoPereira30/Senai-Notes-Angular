@@ -39,6 +39,7 @@ export class LoginScreen {
   }
 
   async onLoginClick() {
+    debugger
 
 
     console.log("Email", this.loginForm.value.email);
@@ -55,14 +56,14 @@ export class LoginScreen {
       return;
     }
 
-    let response = await fetch("https://senai-gpt-api.azurewebsites.net/login", {
+    let response = await fetch("http://senainotes-grupo5.us-east-1.elasticbeanstalk.com/api/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
         email: this.loginForm.value.email,
-        password: this.loginForm.value.password,
+        senha: this.loginForm.value.password,
       })
     });
 
@@ -75,7 +76,7 @@ export class LoginScreen {
       console.log("JSON", json)
 
       let meuToken = json.accessToken;
-      let meuId = json.user.id;
+      let meuId = json.id;
 
       localStorage.setItem("meuToken", meuToken);
       localStorage.setItem("meuId", meuId);

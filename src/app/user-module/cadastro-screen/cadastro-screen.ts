@@ -14,18 +14,12 @@ export class CadastroScreen {
   darkMode: boolean = false;
 
   constructor(
-    private fb: FormBuilder,
-    private http: HttpClient,
-    private router: Router
-
-
+    private fb: FormBuilder
   ) {
     this.newUserForm = this.fb.group({
 
-      Name: ["", [Validators.required]],
-      Email: ["", [Validators.required, Validators.email]],
+      Email: ["", [Validators.required]],
       Password: ["", [Validators.required]],
-      confirmPassword: ["", [Validators.required]],
     });
 
   }
@@ -45,31 +39,29 @@ export class CadastroScreen {
 
   async enter() {
 
-    console.log("Name", this.newUserForm.value.Name);
+    console.log("Name", this.newUserForm.value.Password);
     console.log("Email", this.newUserForm.value.Email);
-    console.log("Password", this.newUserForm.value.Password);
 
-    if (this.newUserForm.value.Email == "") {
+    if (this.newUserForm.value.Email == null) {
 
       alert("Preecha o email.");
       return;
     }
-    if (this.newUserForm.value.Password !== this.newUserForm.value.confirmPassword) {
+    if (this.newUserForm.value.Password == null) {
 
       alert("Senhas não corresponden.");
       return;
 
     }
 
-    let response = await fetch("/users", {
+    let response = await fetch("http://senainotes-grupo5.us-east-1.elasticbeanstalk.com/api/usuario/cadastrar", {
       method: "POST", //enviar
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        user: this.newUserForm.value.Name,
         email: this.newUserForm.value.Email,
-        password: this.newUserForm.value.Password
+        senha: this.newUserForm.value.Password
       })
     });
 

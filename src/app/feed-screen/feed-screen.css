@@ -85,9 +85,10 @@
 
 .campo-bt {
     display: flex;
+    flex-direction: column;
     width: 25%;
     height: 90vh;
-    justify-content: center;
+    align-items: center;
     padding: 16px 0px;
     gap: 16px;
 
@@ -95,7 +96,7 @@
 
 .delete {
     display: flex;
-    justify-content:flex-start;
+    justify-content: flex-start;
     align-items: center;
     padding-left: 20px;
     background-color: transparent;
@@ -105,7 +106,7 @@
     width: 90%;
     gap: 10px !important;
     font-weight: 600;
-    
+
 }
 
 .cnn {
@@ -322,18 +323,34 @@
     background-color: #e0e4ea;
     border: none;
 }
-.selecter {
 
+
+
+.file {
+
+    display: none;
+
+}
+
+.delete label {
+    width: 100%;
+    height: 100%;
+
+}
+
+.selecter {
     border: none;
     font-weight: 600;
 }
-.selecter .op{
+
+.selecter .op {
     color: #525866;
     font-weight: 600;
     border: none;
 
 
 }
+
 /* darck mode */
 
 ::ng-deep body.darkMode .selecter {
@@ -342,20 +359,23 @@
     border: none;
     color: slategrey;
     background-color: #1c1c1c;
-    
+
 }
-::ng-deep body.darkMode .op{
+
+::ng-deep body.darkMode .op {
 
     border: none;
     color: silver;
-    
-    
+
+
 }
+
 ::ng-deep body.darkMode .delete {
-    
+
     background-color: transparent;
     color: slategrey;
 }
+
 ::ng-deep body.darkMode .lado {
 
     background-color: #1c1c1c !important;
@@ -368,23 +388,32 @@
     background-color: #1c1c1c !important;
     color: #E0E4EA;
 }
+
 ::ng-deep body.darkMode .central-panel .titulo {
 
     background-color: #1c1c1c !important;
     color: #E0E4EA;
 }
+
 ::ng-deep body.darkMode .text-note {
 
     background-color: #1c1c1c !important;
     color: #E0E4EA;
 }
+
 ::ng-deep body.darkMode .left-panel .note {
 
     background-color: #1c1c1c !important;
     color: #E0E4EA;
 }
+
 ::ng-deep body.darkMode .left-panel span {
 
-    background-color:#99A0AE  !important;
+    background-color: #99A0AE !important;
+    color: #E0E4EA;
+}
+::ng-deep body.darkMode .nodeD span {
+
+    background-color: #99A0AE !important;
     color: #E0E4EA;
 }

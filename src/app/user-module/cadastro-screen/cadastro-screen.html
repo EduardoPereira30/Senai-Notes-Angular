@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 <main class="container">
     <form action="" class="formulario">
+=======
+<main>
+    <form action="" class="formulario" [formGroup]="newUserForm">
+>>>>>>> 1b8753908df889dff198773d608f04afe004ccf4
         <img src="logo.png" alt="logo">
 
         <h2>Create Your Account</h2>
@@ -11,7 +16,7 @@
                 <p>Email Address</p>
             </nav>
 
-            <input type="email" placeholder="email@example.com">
+            <input type="email" placeholder="email@example.com" formControlName="Email">
 
             <div class="aviso">
                 <img src="infocircle.png" alt="aviso">
@@ -26,7 +31,7 @@
                 <p>Password</p>
             </nav>
 
-            <input type="password">
+            <input type="password" formControlName="Password">
 
             <div class="aviso">
                 <img src="infocircle.png" alt="aviso">
@@ -35,7 +40,7 @@
             </div>
         </div>
 
-        <button class="bt">Sign up</button>
+        <button class="bt" (click)="enter()">Sign up</button>
 
         <div class="cadastro">
             <p>Already have an account?</p>
