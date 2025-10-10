@@ -218,5 +218,13 @@ export class FeedScreen {
 
   }
 
+  deslogar() {
+
+    localStorage.removeItem("meuToken");
+    localStorage.removeItem("userId");
+
+    window.location.href = "";
+  }
+
 }
 

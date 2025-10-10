@@ -412,3 +412,8 @@
     background-color: #99A0AE !important;
     color: #E0E4EA;
 }
+::ng-deep body.darkMode .nodeD span {
+
+    background-color: #99A0AE !important;
+    color: #E0E4EA;
+}
