@@ -25,7 +25,6 @@ main {
     border: 1px solid #E0E4EA;
 
 }
-
 .formulario p {
     font-size: 14px;
     color: #525866;
@@ -48,6 +47,7 @@ main {
 .Forgot a {
 
     color: #525866;
+    
 
 }
 
@@ -94,7 +94,6 @@ main {
     align-items: end;
     margin-bottom: 20px;
 
-
 }
 
 .link {
@@ -103,19 +102,32 @@ main {
     text-decoration: none;
 
 }
+.comunic{
+
+    color: #CACFD8 !important;
+    font-weight: 400 !important;
+}
 ::ng-deep body.darkMode .formulario {
 
-    background-color:black;
+    background-color:#0E121B;
     
 }
-::ng-deep body.darkMode .formulario p {
+::ng-deep body.darkMode .formulario h2  {
 
-    color: #525866;
+    color: #FFFFFF;
+    font-weight: 700;  
+}
+
+::ng-deep body.darkMode .formulario  {
+
+    color: #CACFD8;
+    font-weight: 700;
     
 }
 ::ng-deep body.darkMode .Forgot  {
 
     color: #525866;
+    
     
 }
 ::ng-deep body.darkMode .cadastroL  {
@@ -123,4 +135,29 @@ main {
     color: #525866;
     
 }
+::ng-deep body.darkMode p  {
+
+    color: #FFFFFF !important;
+    font-weight: 500;
+}
+::ng-deep body.darkMode .link {
+
+    color: #FFFFFF;   
+}
+::ng-deep body.darkMode input {
+
+    background-color: black !important;
+    color: #525866 !important;  
+}
+::ng-deep body.darkMode main {
+
+    background-color:#2B303B !important;
+    
+}
+::ng-deep body.darkMode .cadastroL p {
+
+   color:#CACFD8 !important;
+    
+}
+
 

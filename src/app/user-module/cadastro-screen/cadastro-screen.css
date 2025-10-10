@@ -112,5 +112,29 @@ main {
     color: #0E121B;
     text-decoration: none;
 }
+::ng-deep body.darkMode .formulario {
+
+    background-color:#0E121B;
+    
+}
+::ng-deep body.darkMode .formulario h2  {
+
+    color: #FFFFFF;
+    font-weight: 700;  
+}
+::ng-deep body.darkMode .container  {
+
+    background-color: #2B303B !important;  
+}
+::ng-deep body.darkMode .comunic {
+
+    color: #CACFD8 !important;
+    font-weight: 400;  
+}
+::ng-deep body.darkMode   {
+
+    color: #FFFFFF;
+    font-weight: 700;  
+}
 
 
